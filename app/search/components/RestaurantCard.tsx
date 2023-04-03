@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export default function RestaurantCard() {
   return (
     <div className="border-b flex pb-5">
@@ -20,7 +22,7 @@ export default function RestaurantCard() {
           </div>
         </div>
         <div className="text-red-600">
-          <a href="">View more information</a>
+          <Link href="/restaurant/:slug">View more information</Link>
         </div>
       </div>
     </div>

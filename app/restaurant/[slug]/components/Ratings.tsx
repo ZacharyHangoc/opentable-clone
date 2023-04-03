@@ -1,4 +1,4 @@
-export default function Rating() {
+export default function Ratings() {
   return (
     <div className="flex items-end">
       <div className="ratings mt-2 flex items-center">

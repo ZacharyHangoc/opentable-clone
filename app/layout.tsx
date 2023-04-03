@@ -1,8 +1,10 @@
+import { Metadata } from "next";
+import NavBar from "./components/NavBar";
 import "./globals.css";
 
-export const metadata = {
-  title: "Open Table Clone",
-  description: "Scheduling app for restaurants",
+export const metadata: Metadata = {
+  title: "OpenTable",
+  description: "Restaurant scheduling app",
 };
 
 export default function RootLayout({
@@ -12,7 +14,14 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body>
+        <main className="bg-gray-100 min-h-screen w-screen">
+          <main className="max-w-screen-2xl m-auto bg-white">
+            <NavBar />
+            {children}
+          </main>
+        </main>
+      </body>
     </html>
   );
 }
