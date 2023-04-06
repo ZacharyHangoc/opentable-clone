@@ -2,22 +2,26 @@ import Header from "./components/Header";
 import RestaurantCard from "./components/RestaurantCard";
 import { PrismaClient } from "@prisma/client";
 
-// const prisma = new PrismaClient();
+const prisma = new PrismaClient();
 
-// const fetchRestaurants = async () => {
-//   const restaurants = await prisma.restaurant.findMany();
+const fetchRestaurants = async () => {
+  const restaurants = await prisma.restaurant.findMany();
 
-//   return restaurants;
-// };
+  return restaurants;
+};
 
 export default async function Home() {
-  // const restaurants = await fetchRestaurants();
-  // console.log({ restaurants });
+  const restaurants = await fetchRestaurants();
+  console.log({ restaurants });
   return (
     <main>
       <Header />
       <div className="py-3 px-36 mt-10 flex flex-wrap justify-center">
-        <RestaurantCard />
+        {restaurants.map((restaurant) => (
+          <div key={restaurant.id}>
+            <RestaurantCard />
+          </div>
+        ))}
       </div>
     </main>
   );

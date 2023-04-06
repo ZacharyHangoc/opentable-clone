@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-export default function RestaurantCard() {
+export default function RestaurantCard(props: any) {
   return (
     <div className="w-64 h-72 m-3 rounded overflow-hidden border cursor-pointer">
       <Link href="/restaurant/:slug">

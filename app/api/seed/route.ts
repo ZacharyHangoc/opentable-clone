@@ -1318,6 +1318,5 @@ export async function GET() {
   //       },
   //     ],
   //   });
-  await prisma.$disconnect();
   return NextResponse.json("All done");
 }
