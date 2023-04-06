@@ -1,17 +1,35 @@
 import RestaurantNavBar from "../components/RestaurantNavBar";
 import Menu from "../components/Menu";
-import { Metadata } from "next";
+import { prisma } from "@/prisma/prisma";
 
-export const metadata: Metadata = {
-  title: "Menu | Restaurant Name",
-  description: "Menu of restaurant x",
+const fetchRestaurantMenu = async (slug: string) => {
+  const restaurant = await prisma.restaurant.findUnique({
+    where: {
+      slug,
+    },
+    select: {
+      items: true,
+    },
+  });
+
+  if (!restaurant) {
+    throw new Error();
+  }
+  return restaurant.items;
 };
-export default function RestaurantMenu() {
+
+export default async function RestaurantMenu({
+  params,
+}: {
+  params: { slug: string };
+}) {
+  const menu = await fetchRestaurantMenu(params.slug);
+
   return (
     <>
       <div className="bg-white w-[100%] rounded p-3 shadow">
-        <RestaurantNavBar />
-        <Menu />
+        <RestaurantNavBar slug={params.slug} />
+        <Menu menu={menu} />
       </div>
     </>
   );
