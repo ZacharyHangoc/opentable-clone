@@ -3,6 +3,8 @@ import SearchSideBar from "./components/SearchSideBar";
 import RestaurantCard from "./components/RestaurantCard";
 import { prisma } from "@/prisma/prisma";
 
+export const dynamic = "force-dynamic";
+
 const fetchRestaurantsByCity = async (city: string | undefined) => {
   const select = {
     id: true,
