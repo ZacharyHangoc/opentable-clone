@@ -35,7 +35,6 @@ export default async function Search({
 }) {
   const restaurants = await fetchRestaurantsByCity(searchParams.city);
 
-  console.log({ restaurants });
   return (
     <>
       <Header />
