@@ -12,7 +12,7 @@ interface SearchParams {
   price?: PRICE;
 }
 
-const fetchRestaurantsByCity = (searchParams: SearchParams) => {
+const fetchRestaurants = (searchParams: SearchParams) => {
   const where: any = {};
 
   if (searchParams.city) {
@@ -48,6 +48,7 @@ const fetchRestaurantsByCity = (searchParams: SearchParams) => {
     cuisine: true,
     location: true,
     slug: true,
+    reviews: true,
   };
 
   return prisma.restaurant.findMany({
@@ -69,7 +70,7 @@ export default async function Search({
 }: {
   searchParams: SearchParams;
 }) {
-  const restaurants = await fetchRestaurantsByCity(searchParams);
+  const restaurants = await fetchRestaurants(searchParams);
   const location = await fetchLocations();
   const cuisine = await fetchCuisines();
 
@@ -97,5 +98,3 @@ export default async function Search({
     </>
   );
 }
-
-//test
