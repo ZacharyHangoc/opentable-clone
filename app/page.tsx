@@ -3,7 +3,7 @@ import RestaurantCard from "./components/RestaurantCard";
 import { Cuisine, Location, PRICE, Review } from "@prisma/client";
 import { prisma } from "@/prisma/prisma";
 
-export const dynamic = "auto";
+// export const dynamic = "auto";
 
 export interface RestaurantCardType {
   id: number;

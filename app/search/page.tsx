@@ -4,7 +4,7 @@ import RestaurantCard from "./components/RestaurantCard";
 import { prisma } from "@/prisma/prisma";
 import { PRICE } from "@prisma/client";
 
-export const dynamic = "force-dynamic";
+// export const dynamic = "force-dynamic";
 
 interface SearchParams {
   city?: string;
