@@ -28,8 +28,8 @@ export default function Stars({
       } else stars.push(emptyStar);
     }
 
-    return stars.map((star) => {
-      return <Image className="w-4 h-4 mr-1" src={star} alt="" />;
+    return stars.map((star, index) => {
+      return <Image key={index} className="w-4 h-4 mr-1" src={star} alt="" />;
     });
   };
 

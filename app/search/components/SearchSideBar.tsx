@@ -70,7 +70,7 @@ export default function SearchSideBar({
       <div className="mt-3 pb-4">
         <h1 className="mb-2">Price</h1>
         <div className="flex">
-          {prices.map(({ price, label, className }) => (
+          {prices.map(({ price, label, className }, index) => (
             <Link
               href={{
                 pathname: "/search",
@@ -80,6 +80,7 @@ export default function SearchSideBar({
                 },
               }}
               className={className}
+              key={index}
             >
               {label}
             </Link>
